@@ -40,12 +40,54 @@
 		<h1 class="masthead">Time of Day</h1>
 	</header>
     <main>
-	 <header><h3>A JavaScript Project by YOUR NAME HERE</h3></header>
+	 <header><h3>A JavaScript Project by Ramsey Mell</h3></header>
 	    <p>Explain what your page does and how it works here!</p>
+		<p id="dayShow"></p>
+		<P id="timeShow"></P>
+		<script>
+			const time = new Date();
+			const d = new Date();
+			/* Change time.getHours to  time of day in miliary time to test code */
+			currentHour = time.getHours();
+			currentMinute = time.getMinutes();
+			/* Add if statements to change the color based time of day*/
+			if(currentHour>4 && currentHour <13){
+				myColor = "red";
+				document.getElementById("timeShow").innerHTML = currentHour + ":" + currentMinute + " Good Morning!";
+			}if(currentHour>11 && currentHour<19){
+				myColor = "orange";
+				document.getElementById("timeShow").innerHTML = currentHour + ":" + currentMinute + " Good Afternoon!";
+			}if(currentHour>17 && currentHour<24){
+				myColor = "yellow";
+				document.getElementById("timeShow").innerHTML = currentHour + ":" + currentMinute + " Good Evening!";
+			}if(currentHour>23 && currentHour<5){
+				myColor = "green";
+				document.getElementById("timeShow").innerHTML = currentHour + ":" + currentMinute + " Good Night!";
+			}
+			
+			/* Change time.getDay() to a number to test which day of the week it is*/
+			let day = time.getDay()
+			/* If statements to decide which day of the week it is, Sunday-Saturday -> 0-6 */
+			if(day==0){
+				document.getElementById("dayShow").innerHTML = "Sunday";
+			}if(day==1){
+				document.getElementById("dayShow").innerHTML = "Monday";
+			}if(day==2){
+				document.getElementById("dayShow").innerHTML = "Tuesday";
+			}if(day==3){
+				document.getElementById("dayShow").innerHTML = "Wednesday";
+			}if(day==4){
+				document.getElementById("dayShow").innerHTML = "Thursday";
+			}if(day==5){
+				document.getElementById("dayShow").innerHTML = "Friday";
+			}if(day==6){
+				document.getElementById("dayShow").innerHTML = "Saturday";
+}
+		</script>
 	  <img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
      <footer>
       <p><small>&copy; 2022 by 
-          YOUR NAME HERE, All Rights Reserved ~ 
+          Ramsey Mell, All Rights Reserved ~ 
           <a id="html-checker" href="#" target="_blank">Check HTML</a> ~ 
           <a id="css-checker" href="#" target="_blank">Check CSS</a></small>
      </p>
