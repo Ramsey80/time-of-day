@@ -41,27 +41,48 @@
 	</header>
     <main>
 	 <header><h3>A JavaScript Project by Ramsey Mell</h3></header>
-	    <p>Explain what your page does and how it works here!</p>
+	    <p>This is a clock for the current time and date today! The 1st line shows the day of the week it is. The 2nd line is the Time and a little greeting for you and the color also changes depending on the time of day! Also the copyright year at the very bottom should change depending on what year it currently is! And finally the image on the right should also change depending on the time of day.</p>
 		<p id="dayShow"></p>
 		<P id="timeShow"></P>
+		<p id ="imgShow"></p>
 		<script>
 			const time = new Date();
 			const d = new Date();
+
+			var img = document.createElement('img');
 			/* Change time.getHours to  time of day in miliary time to test code */
 			currentHour = time.getHours();
 			currentMinute = time.getMinutes();
+			// create an image variable
+			var img = document.createElement('img');
 			/* Add if statements to change the color based time of day*/
 			if(currentHour>4 && currentHour <13){
-				myColor = "red";
+				//add the image to the page
+				img.src = "images/morning.jpg";
+				img.alt = "Time of Day Image"
+				//Shows the chosen image onto the website
+				document.getElementById("imgShow").appendChild(img);
+				//style.color changes the color of the text
+				document.getElementById("timeShow").style.color = "red";
+				//innerHTML prints the text
 				document.getElementById("timeShow").innerHTML = currentHour + ":" + currentMinute + " Good Morning!";
 			}if(currentHour>11 && currentHour<19){
-				myColor = "orange";
+				img.src = 'images/afternoon.jpg';
+				img.alt = "Time of Day Image"
+				document.getElementById("imgShow").appendChild(img);
+				document.getElementById("timeShow").style.color = "orange";
 				document.getElementById("timeShow").innerHTML = currentHour + ":" + currentMinute + " Good Afternoon!";
 			}if(currentHour>17 && currentHour<24){
-				myColor = "yellow";
+				img.src = 'images/afternoon.jpg';
+				img.alt = "Time of Day Image"
+				document.getElementById("imgShow").appendChild(img);
+				document.getElementById("timeShow").style.color = "green";
 				document.getElementById("timeShow").innerHTML = currentHour + ":" + currentMinute + " Good Evening!";
 			}if(currentHour>23 && currentHour<5){
-				myColor = "green";
+				img.src = 'images/night.jpg';
+				img.alt = "Time of Day Image"
+				document.getElementById.appendChild(img);
+				document.getElementById("timeShow").style.color = "blue";
 				document.getElementById("timeShow").innerHTML = currentHour + ":" + currentMinute + " Good Night!";
 			}
 			
@@ -69,24 +90,28 @@
 			let day = time.getDay()
 			/* If statements to decide which day of the week it is, Sunday-Saturday -> 0-6 */
 			if(day==0){
-				document.getElementById("dayShow").innerHTML = "Sunday";
+				document.getElementById("dayShow").innerHTML = "Enjoy your Sunday!";
 			}if(day==1){
-				document.getElementById("dayShow").innerHTML = "Monday";
+				document.getElementById("dayShow").innerHTML = "Happy Monday";
 			}if(day==2){
-				document.getElementById("dayShow").innerHTML = "Tuesday";
+				document.getElementById("dayShow").innerHTML = "Happy Tuesday";
 			}if(day==3){
-				document.getElementById("dayShow").innerHTML = "Wednesday";
+				document.getElementById("dayShow").innerHTML = "Happy Wednesday";
 			}if(day==4){
-				document.getElementById("dayShow").innerHTML = "Thursday";
+				document.getElementById("dayShow").innerHTML = "Happy Thursday";
 			}if(day==5){
-				document.getElementById("dayShow").innerHTML = "Friday";
+				document.getElementById("dayShow").innerHTML = "Thank God It's Friday!";
 			}if(day==6){
-				document.getElementById("dayShow").innerHTML = "Saturday";
+				document.getElementById("dayShow").innerHTML = "Enjoy your Saturday!";
 }
 		</script>
-	  <img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
      <footer>
-      <p><small>&copy; 2022 by 
+		<P id="yearShow"></P>
+		<script>
+			currentYear = time.getFullYear();
+			document.getElementById("yearShow").innerHTML = "2022" + " - " + currentYear;
+		</script>
+      <p><small>&copy; Created by 
           Ramsey Mell, All Rights Reserved ~ 
           <a id="html-checker" href="#" target="_blank">Check HTML</a> ~ 
           <a id="css-checker" href="#" target="_blank">Check CSS</a></small>
